@@ -33,16 +33,7 @@ export default function AppNavbar() {
             </Nav.Link>
           </Nav>
           <Nav>
-            {user.id ? (
-              <>
-                <Nav.Link as={NavLink} to="/login" className="px-2 px-lg-3">
-                  Login
-                </Nav.Link>
-                <Nav.Link as={NavLink} to="/register" className="px-2 px-lg-3">
-                  Register
-                </Nav.Link>
-              </>
-            ) : (
+            {(user.id !== null && user.id !== undefined) ? (
               <Nav.Link
                 as={NavLink}
                 to="/login"
@@ -50,6 +41,15 @@ export default function AppNavbar() {
                 className="px-2 px-lg-3">
                 Logout
               </Nav.Link>
+            ) : (
+              <>
+                <Nav.Link as={NavLink} to="/login" className="px-2 px-lg-3">
+                  Login
+                </Nav.Link>
+                <Nav.Link as={NavLink} to="/register" className="px-2 px-lg-3">
+                  Register
+                </Nav.Link> 
+              </>
             )}
           </Nav>
         </Navbar.Collapse>
