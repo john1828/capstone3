@@ -3,9 +3,11 @@ import { Container } from "react-bootstrap";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { UserProvider } from "../UserContext";
 import AppNavbar from "./components/AppNavbar";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
 import Home from "./pages/Home";
+import ProductsCatalog from "./pages/ProductsCatalog";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+
 
 function App() {
   const [user, setUser] = useState({
@@ -59,8 +61,9 @@ function App() {
         <Container>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/products" element={<ProductsCatalog />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </Container>
       </Router>
