@@ -1,10 +1,70 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Container } from "react-bootstrap";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { UserProvider } from "../UserContext";
+import AppNavbar from "./components/AppNavbar";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Home from "./pages/Home";
 
 function App() {
+  const [user, setUser] = useState({
+    id: null,
+    isAdmin: null,
+  });
+
+  function unsetUser() {
+    localStorage.clear();
+    setUser({
+      id: null,
+      isAdmin: null,
+    });
+  }
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      fetch("http://localhost:4000/users/details", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data && data._id) {
+            setUser({
+              id: data._id,
+              isAdmin: data.isAdmin,
+            });
+          } else {
+            setUser({
+              id: null,
+              isAdmin: null,
+            });
+          }
+        })
+        .catch(() => {
+          setUser({
+            id: null,
+            isAdmin: null,
+          });
+        });
+    }
+  }, []);
+
   return (
-    <>
-      <h1 className="text-center">Hello Capstone 3 Na!</h1>
-    </>
+    <UserProvider value={{ user, setUser, unsetUser }}>
+      <Router>
+        <AppNavbar />
+        <Container>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Routes>
+        </Container>
+      </Router>
+    </UserProvider>
   );
 }
 
