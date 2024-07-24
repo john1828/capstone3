@@ -18,17 +18,6 @@ export default function Register() {
   // State to determine whether submit button is enable or not
   const [isActive, setIsActive] = useState(false);
 
-  // Check if the values are successfully binded
-  console.log(firstName);
-  console.log(lastName);
-  console.log(email);
-  console.log(mobileNo);
-  console.log(password);
-  console.log(confirmPassword);
-
-  // useEffect has two argument, function and dependency array
-  // function - represents the side effect you want to perform. This will be executed when the component renders
-  // dependency array - optional array. The effect will run when there are changes in the component's dependencies. When there is no provided array, the effect will run on every render of component.
   useEffect(() => {
     if (
       firstName !== "" &&
@@ -50,19 +39,22 @@ export default function Register() {
     // Prevents the page redirection via form submission
     e.preventDefault();
 
-    fetch("http://localhost:4000/users/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        mobileNo: mobileNo,
-        password: password,
-      }),
-    })
+    fetch(
+      "http://ec2-13-59-17-101.us-east-2.compute.amazonaws.com/b4/users/register",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
+          mobileNo: mobileNo,
+          password: password,
+        }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -173,10 +165,10 @@ export default function Register() {
         />
       </Form.Group>
       <Form.Group className="mb-3">
-        <Form.Label>Confirm Password:</Form.Label>
+        <Form.Label>Verify Password:</Form.Label>
         <Form.Control
           type="password"
-          placeholder="Confirm Password"
+          placeholder="Verify your password"
           required
           value={confirmPassword}
           onChange={(e) => {
@@ -184,7 +176,6 @@ export default function Register() {
           }}
         />
       </Form.Group>
-      {/*conditionally render submit button based on isActive state*/}
       {isActive ? (
         <Button variant="primary" type="submit" id="submitBtn">
           Submit

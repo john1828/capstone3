@@ -28,27 +28,29 @@ export default function AppNavbar() {
             <Nav.Link as={NavLink} to="/products" className="px-2 px-lg-3">
               Products
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/profile" className="px-2 px-lg-3">
-              Profile
-            </Nav.Link>
           </Nav>
           <Nav>
-            {(user.id !== null && user.id !== undefined) ? (
-              <Nav.Link
-                as={NavLink}
-                to="/login"
-                onClick={handleLogout}
-                className="px-2 px-lg-3">
-                Logout
-              </Nav.Link>
-            ) : (
+            {user.id !== null && user.id !== undefined ? (
               <>
                 <Nav.Link as={NavLink} to="/login" className="px-2 px-lg-3">
                   Login
                 </Nav.Link>
                 <Nav.Link as={NavLink} to="/register" className="px-2 px-lg-3">
                   Register
-                </Nav.Link> 
+                </Nav.Link>
+              </>
+            ) : (
+              <>
+                <Nav.Link as={NavLink} to="/profile" className="px-2 px-lg-3">
+                  Profile
+                </Nav.Link>
+                <Nav.Link
+                  as={NavLink}
+                  to="/login"
+                  onClick={handleLogout}
+                  className="px-2 px-lg-3">
+                  Logout
+                </Nav.Link>
               </>
             )}
           </Nav>

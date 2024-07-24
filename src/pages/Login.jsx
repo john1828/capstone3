@@ -8,8 +8,6 @@ import UserContext from "../../UserContext";
 export default function Login() {
   const navigate = useNavigate();
   const { setUser } = useContext(UserContext);
-
-  // State hooks to store values of the input fields
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isActive, setIsActive] = useState(true);
@@ -17,21 +15,25 @@ export default function Login() {
   function handleLoginSubmit(e) {
     e.preventDefault();
 
-    fetch("http://localhost:4000/users/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: email,
-        password: password,
-      }),
-    })
+    fetch(
+      "http://ec2-13-59-17-101.us-east-2.compute.amazonaws.com/b4/users/login",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password,
+        }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.access !== undefined) {
           localStorage.setItem("token", data.access);
-          setUser({ id: data._id, isAdmin: data.isAdmin });
+          retrieveUserDetails(data.access);
+
           setEmail("");
           setPassword("");
 
@@ -62,6 +64,24 @@ export default function Login() {
           title: "Login Error",
           icon: "error",
           text: "There was an error processing your login. Please try again.",
+        });
+      });
+  }
+
+  function retrieveUserDetails(token) {
+    fetch(
+      "http://ec2-13-59-17-101.us-east-2.compute.amazonaws.com/b4/users/details",
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setUser({
+          id: data._id,
+          isAdmin: data.isAdmin,
         });
       });
   }
