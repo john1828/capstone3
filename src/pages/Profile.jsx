@@ -1,0 +1,55 @@
+import { useState, useEffect, useContext } from "react";
+import { Row, Col } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import UserContext from "../../UserContext";
+
+export default function Profile() {
+  const { user } = useContext(UserContext);
+  const [details, setDetails] = useState({});
+
+  useEffect(() => {
+    fetch(
+      "http://ec2-13-59-17-101.us-east-2.compute.amazonaws.com/b4/users/details",
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (typeof data !== undefined) {
+          setDetails(data);
+        } else if (data.error === "User not found") {
+          Swal.fire({
+            title: "User Not Found",
+            icon: "error",
+            text: "User not found, please check if you're logged in or contact the administrator.",
+          });
+        } else {
+          Swal.fire({
+            title: "Profile Error",
+            icon: "error",
+            text: "Something went wrong, kindly contact us for assistance.",
+          });
+        }
+      });
+  }, []);
+
+  return (
+    <>
+      <Row>
+        <Col className="text-center">
+          <h1>Profile</h1>
+          <h2 className="mt-3">{`${details.firstName} ${details.lastName}`}</h2>
+          <hr />
+          <h4>Contacts</h4>
+          <p>Email: {details.email}</p>
+          <p>Mobile No: {details.mobileNo}</p>
+        </Col>
+      </Row>
+    </>
+  );
+}

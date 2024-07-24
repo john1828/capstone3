@@ -7,6 +7,8 @@ import Home from "./pages/Home";
 import ProductsCatalog from "./pages/ProductsCatalog";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import ProductView from "./pages/ProductView";
+import Profile from "./pages/Profile";
 
 function App() {
   const [user, setUser] = useState({
@@ -64,8 +66,10 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<ProductsCatalog />} />
+            <Route path="/products/:productId" element={<ProductView />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/profile" element={<Profile />} />
           </Routes>
         </Container>
       </Router>

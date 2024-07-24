@@ -32,15 +32,6 @@ export default function AppNavbar() {
           <Nav>
             {user.id !== null && user.id !== undefined ? (
               <>
-                <Nav.Link as={NavLink} to="/login" className="px-2 px-lg-3">
-                  Login
-                </Nav.Link>
-                <Nav.Link as={NavLink} to="/register" className="px-2 px-lg-3">
-                  Register
-                </Nav.Link>
-              </>
-            ) : (
-              <>
                 <Nav.Link as={NavLink} to="/profile" className="px-2 px-lg-3">
                   Profile
                 </Nav.Link>
@@ -50,6 +41,15 @@ export default function AppNavbar() {
                   onClick={handleLogout}
                   className="px-2 px-lg-3">
                   Logout
+                </Nav.Link>
+              </>
+            ) : (
+              <>
+                <Nav.Link as={NavLink} to="/login" className="px-2 px-lg-3">
+                  Login
+                </Nav.Link>
+                <Nav.Link as={NavLink} to="/register" className="px-2 px-lg-3">
+                  Register
                 </Nav.Link>
               </>
             )}
