@@ -7,7 +7,7 @@ export default function FeaturedProducts(){
 	const [previews, setPreviews] = useState([])
 
 	useEffect(() => {
-		fetch("http://localhost:4000/courses/")
+		fetch("http://ec2-13-59-17-101.us-east-2.compute.amazonaws.com/b4/products/active")
 		.then(res => res.json())
 		.then(data => {
 			console.log(data)

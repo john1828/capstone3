@@ -15,7 +15,7 @@ export default function ProductsCatalog() {
 
     const fetchData = () => {
 
-        let fetchUrl = user.isAdmin === true ? "http://localhost:4000/courses/all" : "http://localhost:4000/courses/"
+        let fetchUrl = user.isAdmin === true ? "http://ec2-13-59-17-101.us-east-2.compute.amazonaws.com/b4/products/all" : "http://ec2-13-59-17-101.us-east-2.compute.amazonaws.com/b4/products/active"
 
         fetch(fetchUrl, {
             headers: {
@@ -26,7 +26,7 @@ export default function ProductsCatalog() {
         .then(data => {
             console.log(data);
 
-            if(data.message === "No courses found"){
+            if(data.message === "No products found"){
                 setProducts([])
             } else {
                 setProducts(data);

@@ -8,12 +8,12 @@ export default function ProductSearch () {
 
   const handleSearch = async () => {
     try {
-      const response = await fetch("http://localhost:4000/courses/search", {
+      const response = await fetch("http://ec2-13-59-17-101.us-east-2.compute.amazonaws.com/b4/products/search-by-name", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ courseName: searchQuery })
+        body: JSON.stringify({ productName: searchQuery })
       });
       const data = await response.json();
       setSearchResults(data);
@@ -28,7 +28,7 @@ export default function ProductSearch () {
       <div className="form-group">
         <input
           type="text"
-          id="courseName"
+          id="productName"
           className="form-control"
           placeholder="Product name"
           style={{ width: '20rem' }}
