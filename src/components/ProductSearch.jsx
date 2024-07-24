@@ -7,16 +7,13 @@ export default function ProductSearch() {
 
   const handleSearch = async () => {
     try {
-      const response = await fetch(
-        "http://ec2-13-59-17-101.us-east-2.compute.amazonaws.com/b4/products/search-by-name",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ productName: searchQuery }),
-        }
-      );
+      const response = await fetch("http://ec2-13-59-17-101.us-east-2.compute.amazonaws.com/b4/products/search-by-name", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name: searchQuery })
+      });
       const data = await response.json();
       setSearchResults(data);
     } catch (error) {
@@ -30,7 +27,7 @@ export default function ProductSearch() {
       <div className="form-group">
         <input
           type="text"
-          id="productName"
+          id="name"
           className="form-control"
           placeholder="Product name"
           style={{ width: "20rem" }}
@@ -42,11 +39,15 @@ export default function ProductSearch() {
         Find
       </button>
       <h4>Search Results:</h4>
-      <ul>
-        {searchResults.map((product) => (
-          <ProductCard productProp={product} key={product._id} />
-        ))}
-      </ul>
+        {searchResults.length > 0 ? (
+          <ul>
+            {searchResults.map(product => (
+              <ProductCard productProp={product} key={product._id} />
+            ))}
+          </ul>
+        ) : (
+          <p>Product not found.</p>
+        )}
     </div>
   );
 }
