@@ -33,7 +33,6 @@ export default function FeaturedProducts(){
 				
 				featured.push(
 
-					// the breakPoint here is for columns
 					<PreviewProducts data={data[numbers[i]]} key={data[numbers[i]]._id} breakPoint={2}/>
 				)
 			}

@@ -1,9 +1,9 @@
-import { useState, useEffect, useContext } from 'react';
-import { CardGroup } from 'react-bootstrap';
-import ProductCard from '../components/ProductCard';
-import ProductSearch from '../components/ProductSearch';
-import UserView from '../components/UserView';
+import { useState, useEffect, useContext } from "react";
+import { CardGroup } from "react-bootstrap";
+import ProductSearch from "../components/ProductSearch";
+import UserView from "../components/UserView";
 import UserContext from "../../UserContext";
+import AdminView from "../components/AdminView";
 
 export default function ProductsCatalog() {
 

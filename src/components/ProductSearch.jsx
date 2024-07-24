@@ -1,9 +1,8 @@
-import { useState } from 'react';
-import ProductCard from './ProductCard';
+import { useState } from "react";
+import ProductCard from "./ProductCard";
 
-export default function ProductSearch () {
-
-  const [searchQuery, setSearchQuery] = useState('');
+export default function ProductSearch() {
+  const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
   const handleSearch = async () => {
@@ -18,12 +17,12 @@ export default function ProductSearch () {
       const data = await response.json();
       setSearchResults(data);
     } catch (error) {
-      console.error('Error searching for product:', error);
+      console.error("Error searching for product:", error);
     }
   };
 
   return (
-    <div className='mt-3 my-5'>
+    <div className="mt-3 my-5">
       <h2>Search Products</h2>
       <div className="form-group">
         <input
@@ -31,9 +30,9 @@ export default function ProductSearch () {
           id="name"
           className="form-control"
           placeholder="Product name"
-          style={{ width: '20rem' }}
+          style={{ width: "20rem" }}
           value={searchQuery}
-          onChange={event => setSearchQuery(event.target.value)}
+          onChange={(event) => setSearchQuery(event.target.value)}
         />
       </div>
       <button className="btn btn-primary my-3" onClick={handleSearch}>
@@ -51,6 +50,4 @@ export default function ProductSearch () {
         )}
     </div>
   );
-};
-
-
+}

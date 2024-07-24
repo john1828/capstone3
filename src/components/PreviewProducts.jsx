@@ -1,11 +1,10 @@
-import { Col, Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Col, Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
-export default function PreviewProducts(props){
+export default function PreviewProducts(props) {
+  const { breakPoint, data } = props;
 
-	const { breakPoint, data } = props;
-
-	const { _id, name, description, price } = data;
+  const { _id, name, description, price } = data;
 
 	return(
 		<Col xs={12} md={breakPoint}>
@@ -15,7 +14,6 @@ export default function PreviewProducts(props){
 	                    <Link style={{textDecoration: 'none'}} to={`/products/${_id}`}>{name}</Link>
 	                </Card.Title>
 	                <Card.Text>{description}</Card.Text>
-	                
 	            </Card.Body>
 	            <Card.Footer>
 	                <h5 className="text-center">₱{price}</h5>
@@ -24,5 +22,5 @@ export default function PreviewProducts(props){
 	        </Card>
 		</Col>
 	)
-
 }
+

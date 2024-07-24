@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
-import ProductCard from './ProductCard';
+import { useState, useEffect } from "react";
+import ProductCard from "./ProductCard";
 
-export default function UserView({productData}) {
-
-    const [products, setProducts] = useState([])
+export default function UserView({ productData }) {
+    
+  const [products, setProducts] = useState([]);
 
     useEffect(() => {
         console.log(productData);
@@ -26,3 +26,4 @@ export default function UserView({productData}) {
              [products]
         )
 }
+

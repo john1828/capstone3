@@ -1,13 +1,12 @@
-import { useState } from 'react';
-import { Row, Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { useState } from "react";
+import { Row, Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
-export default function ProductCard({productProp}) {
-    console.log(productProp);
-   
-    const { _id, name, description, price} = productProp
+export default function ProductCard({ productProp }) {
+  console.log(productProp);
 
-
+  const { _id, name, description, price } = productProp;
+  
     return (
         <Row >
             <Card style={{ width: '20rem' }} className="mh-100 mx-5 mb-5" >
@@ -25,4 +24,3 @@ export default function ProductCard({productProp}) {
         </Row>
     )
 }
-
