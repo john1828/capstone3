@@ -5,9 +5,10 @@ import { UserProvider } from "../UserContext";
 import AppNavbar from "./components/AppNavbar";
 import Home from "./pages/Home";
 import ProductsCatalog from "./pages/ProductsCatalog";
+import ProductView from "./pages/ProductView";
+import CartView from "./pages/CartView";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
-import ProductView from "./pages/ProductView";
 import Profile from "./pages/Profile";
 
 function App() {
@@ -67,6 +68,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<ProductsCatalog />} />
             <Route path="/products/:productId" element={<ProductView />} />
+            <Route path="/cart" element={<CartView />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/profile" element={<Profile />} />
