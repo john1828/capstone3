@@ -31,18 +31,36 @@ export default function AppNavbar() {
           </Nav>
           <Nav>
             {user.id !== null && user.id !== undefined ? (
-              <>
-                <Nav.Link as={NavLink} to="/profile" className="px-2 px-lg-3">
-                  Profile
-                </Nav.Link>
-                <Nav.Link
-                  as={NavLink}
-                  to="/login"
-                  onClick={handleLogout}
-                  className="px-2 px-lg-3">
-                  Logout
-                </Nav.Link>
-              </>
+              user.isAdmin ? (
+                <>
+                  <Nav.Link as={NavLink} to="/profile" className="px-2 px-lg-3">
+                    Profile
+                  </Nav.Link>
+                  <Nav.Link
+                    as={NavLink}
+                    to="/login"
+                    onClick={handleLogout}
+                    className="px-2 px-lg-3">
+                    Logout
+                  </Nav.Link>
+                </>
+              ) : (
+                <>
+                  <Nav.Link as={NavLink} to="/profile" className="px-2 px-lg-3">
+                    Profile
+                  </Nav.Link>
+                  <Nav.Link as={NavLink} to="/cart" className="px-2 px-lg-3">
+                    Shopping Cart
+                  </Nav.Link>
+                  <Nav.Link
+                    as={NavLink}
+                    to="/login"
+                    onClick={handleLogout}
+                    className="px-2 px-lg-3">
+                    Logout
+                  </Nav.Link>
+                </>
+              )
             ) : (
               <>
                 <Nav.Link as={NavLink} to="/login" className="px-2 px-lg-3">
@@ -59,3 +77,4 @@ export default function AppNavbar() {
     </Navbar>
   );
 }
+
