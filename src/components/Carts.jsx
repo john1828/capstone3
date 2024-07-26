@@ -1,24 +1,16 @@
-import { useState, useEffect } from 'react';
-import CartTable from './CartTable';
+import { useState, useEffect } from "react";
+import CartTable from "./CartTable";
 
-export default function Carts({cartData, fetchCart}) {
+export default function Carts({ cartData, fetchCart }) {
+  const [carts, setCarts] = useState([]);
 
-    const [carts, setCarts] = useState([])
+  useEffect(() => {
+    const cartsArr = cartData.map((cart, index) => (
+      <CartTable cartProp={cart} fetchCart={fetchCart} key={cart._Id} />
+    ));
 
-    useEffect(() => {
-        console.log(cartData);
+    setCarts(cartsArr);
+  }, [cartData]);
 
-        const cartsArr = cartData.map(cart => {
-            return (
-                <CartTable cartProp={cart} fetchCart={fetchCart} key={cart._id}/>
-            )
-        })
-
-        setCarts(cartsArr)
-
-    }, [cartData])
-
-    return(
-            [ carts ]
-        )
+  return <>{carts}</>;
 }
