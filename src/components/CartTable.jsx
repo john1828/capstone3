@@ -1,11 +1,13 @@
 import { Button, Table } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import RemoveCartItem from "./RemoveCartItem";
+import ClearCart from "./ClearCart";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 export default function CartTable({ cartProp, fetchCart }) {
-  const { cartItems } = cartProp;
+  const { userId, cartItems, totalPrice } = cartProp;
+  const [totalQuantity, setTotalQuantity] = useState(0);
 
   function CartItemRow({ item, fetchCart }) {
     const { productId, name, price, quantity, subtotal } = item;
@@ -126,6 +128,15 @@ export default function CartTable({ cartProp, fetchCart }) {
       </tr>
     );
   }
+
+  useEffect(() => {
+    if (cartProp) {
+      const totalQty = cartProp.cartItems.reduce((acc, item) => acc + item.quantity, 0);
+      setTotalQuantity(totalQty);
+    }
+  }, [cartProp]);
+
+
   return (
     <>
       <h1 className="text-center my-4">Your Shopping Cart</h1>
@@ -148,8 +159,21 @@ export default function CartTable({ cartProp, fetchCart }) {
               fetchCart={fetchCart}
             />
           ))}
+          <tr>
+            <td colSpan="3" className="text-center pt-3"><h5 style={{ fontStyle: 'italic' }}>Free shipping with min order of ₱1,000!</h5></td>
+            <td colSpan="3" className="text-center"><h2>Total: ₱{totalPrice}</h2></td>
+          </tr>
+          <tr>
+            <td colSpan="6">
+              <div  className="d-flex justify-content-between px-2">
+                <Button variant="primary">Check Out ({totalQuantity})</Button>
+                <ClearCart user={userId} fetchCart={fetchCart} />
+              </div>
+            </td>
+          </tr>
         </tbody>
       </Table>
     </>
   );
 }
+
