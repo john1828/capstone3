@@ -1,3 +1,4 @@
+import { Container } from "react-bootstrap";
 import { useState, useEffect, useContext } from "react";
 import Carts from "../components/Carts";
 import UserContext from "../../UserContext";
@@ -32,5 +33,11 @@ export default function CartView() {
     fetchCart();
   }, [user]);
 
-  return <Carts cartData={cartProducts} fetchCart={fetchCart} />;
+  return (
+    <div className="cartPage">
+      <Container>
+        <Carts cartData={cartProducts} fetchCart={fetchCart} />;
+      </Container>
+    </div>
+  )
 }

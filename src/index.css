@@ -4,9 +4,42 @@
   margin: 0;
 }
 
+.header {
+  background-color: #0d6efd;
+  font-style: italic;
+  text-align: center;
+  color: white;
+  margin-bottom: 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.headerImg {
+  width: 100px;
+  height: auto;
+}
+
+.navbar {
+  background-color: #F0F8FF;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4); 
+}
+
+.navBrand {
+  font-weight: bolder;
+}
+
+.navLink  {
+  color: ##003256 !important;
+  font-weight: bolder;
+}
+.navLink:hover {
+  color: blue !important;
+}
+
 .ml-auto {
   margin: auto;
 }
+
 .loginForm {
   display: flex;
   align-items: center;
@@ -15,4 +48,127 @@
 .increment-decrement {
   display: flex;
   align-items: center;
+}
+
+
+@media (max-width: 767.98px) {
+  .featured {
+    min-height: 65vh;
+    background: linear-gradient(rgba(255, 255, 255, .6), rgba(255, 255, 255, .6)), url(./src/assets/featured image.jpg);
+    background-size: 100% 100%;  
+    background-repeat: no-repeat; 
+    background-position: center; 
+  }
+}
+
+@media (min-width: 768px) {
+  .featured {
+    min-height: 65vh;
+    background: url(./src/assets/featured image.jpg);
+    background-size: 100% 100%;  
+    background-repeat: no-repeat; 
+    background-position: center;  
+  }
+}
+
+.featured {
+  display: grid;
+  align-content: center;
+}
+
+.previewCard {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4); 
+}
+
+.productPage {
+  background: url(./src/assets/productPage.jpg);
+  background-size: 100% 100%;  
+  background-repeat: no-repeat; 
+  background-position: center;  
+  background-attachment: fixed;
+}
+
+@media (max-width: 767.98px) {
+  .logInImg {
+    display: none;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .logInForm {
+    background: linear-gradient(rgba(255, 255, 255, .6), rgba(255, 255, 255, .6)), url(./src/assets/login.png);
+    background-size: 100% 100%;  
+    background-repeat: no-repeat; 
+    background-position: center; 
+  }
+}
+
+
+@media (max-width: 767.98px) {
+  .registerImg {
+    display: none;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .registerForm {
+    background: linear-gradient(rgba(255, 255, 255, .6), rgba(255, 255, 255, .6)), url(./src/assets/login.png);
+    background-size: 100% 100%;  
+    background-repeat: no-repeat; 
+    background-position: center; 
+  }
+}
+
+.profile{
+  min-height: 50vh;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+}
+
+.info {
+  display: grid;
+  background-color: #FFD700 ;
+  align-content: center;
+}
+
+@media (max-width: 767.98px) {
+  .icon {
+    display: none;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .info {
+    min-height: 80vh;
+    background: url(./src/assets/icon.png);
+    background-color: #FFD700;
+    background-size: 100% 100%;  
+    background-repeat: no-repeat; 
+    background-position: center; 
+  }
+}
+
+.cardsDiv {
+/*  background-color: #F0F8FF;*/
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4); 
+}
+
+.cards {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4); 
+}
+
+.cartPage {
+  background: url(./src/assets/cartPage.jpg);
+  min-height: 100vh;
+  background-size: 100% 100%;  
+  background-repeat: no-repeat; 
+  background-position: center;  
+  background-attachment: fixed;
+}
+
+.cartTable {
+   opacity: .9;
 }

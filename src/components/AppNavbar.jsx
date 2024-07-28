@@ -13,19 +13,19 @@ export default function AppNavbar() {
   };
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar expand="lg" className="navBar">
       <Container>
-        <Navbar.Brand>ShopEase</Navbar.Brand>
+        <Navbar.Brand className="navBrand text-warning">ShopEase</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
-            <Nav.Link as={NavLink} to="/" className="px-2 px-lg-3">
+            <Nav.Link as={NavLink} to="/" className="navLink px-2 px-lg-3">
               Home
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/deals" className="px-2 px-lg-3">
+            <Nav.Link as={NavLink} to="/deals" className="navLink px-2 px-lg-3">
               Deals
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/products" className="px-2 px-lg-3">
+            <Nav.Link as={NavLink} to="/products" className="navLink px-2 px-lg-3">
               Products
             </Nav.Link>
           </Nav>
@@ -33,40 +33,40 @@ export default function AppNavbar() {
             {user.id !== null && user.id !== undefined ? (
               user.isAdmin ? (
                 <>
-                  <Nav.Link as={NavLink} to="/profile" className="px-2 px-lg-3">
+                  <Nav.Link as={NavLink} to="/profile" className="navLink px-2 px-lg-3">
                     Profile
                   </Nav.Link>
                   <Nav.Link
                     as={NavLink}
                     to="/login"
                     onClick={handleLogout}
-                    className="px-2 px-lg-3">
+                    className="navLink ps-2 ps-lg-3">
                     Logout
                   </Nav.Link>
                 </>
               ) : (
                 <>
-                  <Nav.Link as={NavLink} to="/profile" className="px-2 px-lg-3">
+                  <Nav.Link as={NavLink} to="/profile" className="navLink px-2 px-lg-3">
                     Profile
                   </Nav.Link>
-                  <Nav.Link as={NavLink} to="/cart" className="px-2 px-lg-3">
+                  <Nav.Link as={NavLink} to="/cart" className="navLink px-2 px-lg-3">
                     Shopping Cart
                   </Nav.Link>
                   <Nav.Link
                     as={NavLink}
                     to="/login"
                     onClick={handleLogout}
-                    className="px-2 px-lg-3">
+                    className="navLink ps-2 ps-lg-3">
                     Logout
                   </Nav.Link>
                 </>
               )
             ) : (
               <>
-                <Nav.Link as={NavLink} to="/login" className="px-2 px-lg-3">
+                <Nav.Link as={NavLink} to="/login" className="navLink px-2 px-lg-3">
                   Login
                 </Nav.Link>
-                <Nav.Link as={NavLink} to="/register" className="px-2 px-lg-3">
+                <Nav.Link as={NavLink} to="/register" className="navLink ps-2 ps-lg-3">
                   Register
                 </Nav.Link>
               </>

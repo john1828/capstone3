@@ -24,7 +24,7 @@ const deleteCart = (user) => {
 
 		        Swal.fire({
 		          title: "Cart is now empty!",
-		          icon: "info",
+		          icon: "warning",
 		        });
 		        fetchCart()
 

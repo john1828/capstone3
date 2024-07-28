@@ -25,7 +25,7 @@ const handleDelete = (itemId) => {
 			if(data.message === 'Item removed from cart successfully'){
 
 		        Swal.fire({
-		          title: "Item/items removed from the cart successfully!",
+		          title: "Item/items removed from the cart!",
 		          icon: "info",
 		        });
 		        fetchCart()

@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react";
-import { Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import IconImg from "../assets/icon.png";
 import Swal from "sweetalert2";
 import UserContext from "../../UserContext";
 
@@ -40,16 +41,21 @@ export default function Profile() {
 
   return (
     <>
-      <Row>
-        <Col className="text-center">
-          <h1>Profile</h1>
-          <h2 className="mt-3">{`${details.firstName} ${details.lastName}`}</h2>
-          <hr />
-          <h4>Contacts</h4>
-          <p>Email: {details.email}</p>
-          <p>Mobile No: {details.mobileNo}</p>
-        </Col>
-      </Row>
+      <Container className="profile">
+        <Row className="my-5">
+          <Col md={6} className="icon">
+            <img src={IconImg} alt="icon" className="img-fluid" />
+          </Col>
+          <Col md={6} xs={12} className="text-center info">
+            <h1>Profile</h1>
+            <h2 className="mt-3">{`${details.firstName} ${details.lastName}`}</h2>
+            <hr />
+            <h4>Contacts</h4>
+            <p>Email: {details.email}</p>
+            <p>Mobile No: {details.mobileNo}</p>
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 }

@@ -2,6 +2,7 @@ import { Button, Table } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import RemoveCartItem from "./RemoveCartItem";
 import ClearCart from "./ClearCart";
+import shippingImg from "../assets/shipping.png";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -139,8 +140,8 @@ export default function CartTable({ cartProp, fetchCart }) {
 
   return (
     <>
-      <h1 className="text-center my-4">Your Shopping Cart</h1>
-      <Table striped bordered hover responsive>
+      <h1 className="text-center py-4">Your Shopping Cart</h1>
+      <Table striped bordered hover responsive className="cartTable">
         <thead>
           <tr className="text-center">
             <th>Name</th>
@@ -160,13 +161,18 @@ export default function CartTable({ cartProp, fetchCart }) {
             />
           ))}
           <tr>
-            <td colSpan="3" className="text-center pt-3"><h5 style={{ fontStyle: 'italic' }}>Free shipping with min order of ₱1,000!</h5></td>
-            <td colSpan="3" className="text-center"><h2>Total: ₱{totalPrice}</h2></td>
+            <td colSpan="3" className="text-center">
+              <h5 className="pt-2" style={{ fontStyle: 'italic' }}>Shop till you drop!</h5>
+            </td>
+            <td colSpan="3" ><h3 className="text-center">Total: ₱{totalPrice}</h3></td>
           </tr>
           <tr>
             <td colSpan="6">
               <div  className="d-flex justify-content-between px-2">
                 <Button variant="primary">Check Out ({totalQuantity})</Button>
+                <h5 style={{ fontStyle: 'italic' }} className="pt-2">
+                  <img src={shippingImg} alt="shipping Image" className="img-fluid" style={{ width: '100px', height: 'auto'}}/>
+                  Free shipping with min order of ₱3,000!</h5>
                 <ClearCart user={userId} fetchCart={fetchCart} />
               </div>
             </td>

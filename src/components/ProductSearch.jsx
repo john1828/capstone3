@@ -22,7 +22,7 @@ export default function ProductSearch() {
   };
 
   return (
-    <div className="mt-3 my-5">
+    <div className="my-5 text-white">
       <h2>Search Products</h2>
       <div className="form-group">
         <input

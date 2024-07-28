@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { CardGroup } from "react-bootstrap";
+import { Container, Row, Col, CardGroup } from "react-bootstrap";
 import ProductSearch from "../components/ProductSearch";
 import UserView from "../components/UserView";
 import UserContext from "../../UserContext";
@@ -41,11 +41,21 @@ export default function ProductsCatalog() {
         <AdminView productData={products} fetchData={fetchData} />
       ) : (
         <>
-          <ProductSearch />
-          <h2 className="text-center mt-3 my-5">Our Products</h2>
-          <CardGroup className="justify-content-center">
-            <UserView productData={products} />
-          </CardGroup>
+        <div className="productPage">
+          <Container>
+            <Row>
+              <Col>
+                <ProductSearch />
+                <div className="cardsDiv mb-5">
+                  <h2 className="text-center py-5 text-white">Our Products</h2>
+                  <CardGroup className="justify-content-center">
+                    <UserView productData={products} />
+                  </CardGroup>
+                </div>
+              </Col>
+            </Row> 
+          </Container>
+        </div>
         </>
       )}
     </>
