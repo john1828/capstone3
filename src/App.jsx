@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { UserProvider } from "../UserContext";
 import AppNavbar from "./components/AppNavbar";
@@ -11,6 +10,9 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import AddProduct from "./pages/AddProduct";
+import { Link } from "react-router-dom";
+import ShopNowImg from "./assets/shopNow.png";
+
 
 function App() {
   const [user, setUser] = useState({
@@ -63,19 +65,27 @@ function App() {
   return (
     <UserProvider value={{ user, setUser, unsetUser }}>
       <Router>
+        {!user.isAdmin ? (
+            <h5 className="header">Free shipping with min order of ₱3,000! <Link to={'/products'}>
+                <img src={ShopNowImg} alt="shopNow Image" className="img-fluid headerImg"/>
+                </Link>
+            </h5>
+          ) : (
+            null
+          )}
         <AppNavbar />
-        <Container>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/products" element={<ProductsCatalog />} />
-            <Route path="/addProduct" element={<AddProduct />} />
-            <Route path="/products/:productId" element={<ProductView />} />
-            <Route path="/cart" element={<CartView />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/profile" element={<Profile />} />
-          </Routes>
-        </Container>
+        <div className="MainDiv">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/products" element={<ProductsCatalog />} />
+              <Route path="/addProduct" element={<AddProduct />} />
+              <Route path="/products/:productId" element={<ProductView />} />
+              <Route path="/cart" element={<CartView />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/profile" element={<Profile />} />
+            </Routes>
+        </div>
       </Router>
     </UserProvider>
   );

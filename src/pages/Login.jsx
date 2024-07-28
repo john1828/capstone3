@@ -1,4 +1,4 @@
-import { Row, Col, Form, Button } from "react-bootstrap";
+import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import loginImg from "../assets/login.png";
 import { useEffect, useState, useContext } from "react";
 import Swal from "sweetalert2";
@@ -95,46 +95,48 @@ export default function Login() {
   }, [email, password]);
 
   return (
-    <Row className="loginForm">
-      <Col lg={{ order: "first", span: 6 }}>
-        <img src={loginImg} alt="eCommerce" className="img-fluid" />
-      </Col>
-      <Col lg={6} xs={{ order: "first" }}>
-        <Form onSubmit={handleLoginSubmit}>
-          <h1 className="text-center mb-5">Log in</h1>
-          <p>Enter your details</p>
-          <Form.Group>
-            <Form.Label>Email address</Form.Label>
-            <Form.Control
-              type="email"
-              placeholder="Enter email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </Form.Group>
+    <Container>
+      <Row className="loginForm">
+        <Col md={{ order: "first", span: 6 }} className="logInImg">
+          <img src={loginImg} alt="eCommerce" className="img-fluid" />
+        </Col>
+        <Col md={6} xs={12} className="logInForm">
+          <Form onSubmit={handleLoginSubmit} className="my-5">
+            <h1 className="text-center">Log in</h1>
+            <p>Enter your details</p>
+            <Form.Group>
+              <Form.Label>Email address</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Enter email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </Form.Group>
 
-          <Form.Group className="mb-4">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Enter password"
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </Form.Group>
-          {isActive ? (
-            <Button variant="success" id="loginBtn" size="lg" type="submit">
-              Login
-            </Button>
-          ) : (
-            <Button variant="danger" id="loginBtn" size="lg" type="submit">
-              Login
-            </Button>
-          )}
-        </Form>
-      </Col>
-    </Row>
+            <Form.Group className="mb-4">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Enter password"
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </Form.Group>
+            {isActive ? (
+              <Button variant="success" id="loginBtn" size="lg" type="submit">
+                Login
+              </Button>
+            ) : (
+              <Button variant="danger" id="loginBtn" size="lg" type="submit">
+                Login
+              </Button>
+            )}
+          </Form>
+        </Col>
+      </Row>
+    </Container>
   );
 }

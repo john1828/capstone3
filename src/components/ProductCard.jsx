@@ -7,7 +7,7 @@ export default function ProductCard({ productProp }) {
 
   return (
     <Row>
-      <Card style={{ width: "20rem" }} className="mh-100 mx-5 mb-5">
+      <Card style={{ width: "20rem" }} className="cards mh-100 mx-5 mb-5">
         <Card.Body>
           <Card.Title className="text-center">
             <Link style={{ textDecoration: "none" }} to={`/products/${_id}`}>

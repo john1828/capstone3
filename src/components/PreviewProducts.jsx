@@ -8,8 +8,8 @@ export default function PreviewProducts(props) {
 
 	return(
 		<Col xs={12} md={breakPoint}>
-	        <Card className="h-100 mx-2">
-	            <Card.Body>
+	        <Card className="previewCard h-100 mx-2 mb-2">
+	            <Card.Body className="d-grid align-content-center">
 	                <Card.Title className="text-center">
 	                    <Link style={{textDecoration: 'none'}} to={`/products/${_id}`}>{name}</Link>
 	                </Card.Title>
