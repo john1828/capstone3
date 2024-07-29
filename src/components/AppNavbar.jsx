@@ -22,10 +22,10 @@ export default function AppNavbar() {
             <Nav.Link as={NavLink} to="/" className="navLink px-2 px-lg-3">
               Home
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/deals" className="navLink px-2 px-lg-3">
-              Deals
-            </Nav.Link>
-            <Nav.Link as={NavLink} to="/products" className="navLink px-2 px-lg-3">
+            <Nav.Link
+              as={NavLink}
+              to="/products"
+              className="navLink px-2 px-lg-3">
               Products
             </Nav.Link>
           </Nav>
@@ -33,8 +33,11 @@ export default function AppNavbar() {
             {user.id !== null && user.id !== undefined ? (
               user.isAdmin ? (
                 <>
-                  <Nav.Link as={NavLink} to="/profile" className="navLink px-2 px-lg-3">
-                    Profile
+                  <Nav.Link
+                    as={NavLink}
+                    to="/profile"
+                    className="navLink px-2 px-lg-3">
+                    Hi {user.firstName}
                   </Nav.Link>
                   <Nav.Link
                     as={NavLink}
@@ -46,10 +49,16 @@ export default function AppNavbar() {
                 </>
               ) : (
                 <>
-                  <Nav.Link as={NavLink} to="/profile" className="navLink px-2 px-lg-3">
-                    Profile
+                  <Nav.Link
+                    as={NavLink}
+                    to="/profile"
+                    className="navLink px-2 px-lg-3">
+                    Hi {user.firstName}
                   </Nav.Link>
-                  <Nav.Link as={NavLink} to="/cart" className="navLink px-2 px-lg-3">
+                  <Nav.Link
+                    as={NavLink}
+                    to="/cart"
+                    className="navLink px-2 px-lg-3">
                     Shopping Cart
                   </Nav.Link>
                   <Nav.Link
@@ -63,10 +72,16 @@ export default function AppNavbar() {
               )
             ) : (
               <>
-                <Nav.Link as={NavLink} to="/login" className="navLink px-2 px-lg-3">
+                <Nav.Link
+                  as={NavLink}
+                  to="/login"
+                  className="navLink px-2 px-lg-3">
                   Login
                 </Nav.Link>
-                <Nav.Link as={NavLink} to="/register" className="navLink ps-2 ps-lg-3">
+                <Nav.Link
+                  as={NavLink}
+                  to="/register"
+                  className="navLink ps-2 ps-lg-3">
                   Register
                 </Nav.Link>
               </>
@@ -77,4 +92,3 @@ export default function AppNavbar() {
     </Navbar>
   );
 }
-

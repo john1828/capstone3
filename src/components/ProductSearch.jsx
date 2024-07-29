@@ -7,13 +7,16 @@ export default function ProductSearch() {
 
   const handleSearch = async () => {
     try {
-      const response = await fetch("http://ec2-13-59-17-101.us-east-2.compute.amazonaws.com/b4/products/search-by-name", {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ name: searchQuery })
-      });
+      const response = await fetch(
+        "https://capstone2-dn1l.onrender.com/b4/products/search-by-name",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ name: searchQuery }),
+        }
+      );
       const data = await response.json();
       setSearchResults(data);
     } catch (error) {
@@ -39,15 +42,15 @@ export default function ProductSearch() {
         Find
       </button>
       <h4>Search Results:</h4>
-        {searchResults.length > 0 ? (
-          <ul>
-            {searchResults.map(product => (
-              <ProductCard productProp={product} key={product._id} />
-            ))}
-          </ul>
-        ) : (
-          <p>Product not found.</p>
-        )}
+      {searchResults.length > 0 ? (
+        <ul>
+          {searchResults.map((product) => (
+            <ProductCard productProp={product} key={product._id} />
+          ))}
+        </ul>
+      ) : (
+        <p>Product not found.</p>
+      )}
     </div>
   );
 }

@@ -40,22 +40,19 @@ export default function Register() {
     // Prevents the page redirection via form submission
     e.preventDefault();
 
-    fetch(
-      "http://ec2-13-59-17-101.us-east-2.compute.amazonaws.com/b4/users/register",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          firstName: firstName,
-          lastName: lastName,
-          email: email,
-          mobileNo: mobileNo,
-          password: password,
-        }),
-      }
-    )
+    fetch("https://capstone2-dn1l.onrender.com/b4/users/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        mobileNo: mobileNo,
+        password: password,
+      }),
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -109,7 +106,10 @@ export default function Register() {
           <Col md={{ order: "second", span: 6 }} className="registerImg">
             <img src={loginImg} alt="eCommerce" className="img-fluid" />
           </Col>
-          <Col md={{ order: "first", span: 6 }} xs={12} className="registerForm">
+          <Col
+            md={{ order: "first", span: 6 }}
+            xs={12}
+            className="registerForm">
             <Form onSubmit={(e) => registerUser(e)} className="my-5">
               <h1 className="text-center">Register</h1>
               <Form.Group>

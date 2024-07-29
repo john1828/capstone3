@@ -17,21 +17,18 @@ export default function AddProduct({ handleClose, fetchData }) {
 
     let token = localStorage.getItem("token");
 
-    fetch(
-      "http://ec2-13-59-17-101.us-east-2.compute.amazonaws.com/b4/products",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          name: name,
-          description: description,
-          price: price,
-        }),
-      }
-    )
+    fetch("https://capstone2-dn1l.onrender.com/b4/products", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        name: name,
+        description: description,
+        price: price,
+      }),
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data.message === "Product already exists") {

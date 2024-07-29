@@ -1,76 +1,127 @@
 import { useState } from "react";
-import { Button, Container, Row, Col, Modal, Card } from "react-bootstrap";
+import { Button, Container, Row, Col, Card, Modal } from "react-bootstrap";
 import AddProduct from "../pages/AddProduct";
 import UpdateProduct from "./UpdateProduct";
 import DisableProduct from "./DisableProduct";
+import ShowUserOrders from "./ShowUsersOrders";
 
 export default function AdminView({ productData, fetchData }) {
-  const [showModal, setShowModal] = useState(false);
+  const [showAddProduct, setShowAddProduct] = useState(false);
+  const [showUserOrders, setShowUserOrders] = useState(false);
 
-  const handleShow = () => setShowModal(true);
-  const handleClose = () => setShowModal(false);
+  const handleShowAddProduct = () => setShowAddProduct(true);
+  const handleCloseAddProduct = () => setShowAddProduct(false);
+
+  const handleShowUserOrders = () => setShowUserOrders(true);
+  const handleBackToProducts = () => {
+    setShowUserOrders(false);
+    setShowAddProduct(false);
+  };
 
   return (
     <>
       <h1 className="text-center my-4">Admin Dashboard</h1>
       <Container className="text-center">
-        <Button variant="primary" className="m-3" onClick={handleShow}>
-          Add new products
-        </Button>
-        <Button variant="success" className="m-3">
-          Show user orders
-        </Button>
+        {!showUserOrders ? (
+          <>
+            {!showAddProduct ? (
+              <>
+                <Button
+                  variant="primary"
+                  className="m-3"
+                  onClick={handleShowAddProduct}>
+                  Add new products
+                </Button>
+                <Button
+                  variant="success"
+                  className="m-3"
+                  onClick={handleShowUserOrders}>
+                  Show user orders
+                </Button>
+              </>
+            ) : (
+              <Button
+                variant="secondary"
+                className="m-3"
+                onClick={handleBackToProducts}>
+                Back to Products
+              </Button>
+            )}
+          </>
+        ) : (
+          <Button
+            variant="secondary"
+            className="m-3"
+            onClick={handleBackToProducts}>
+            Back to Products
+          </Button>
+        )}
       </Container>
-      <Container>
-        <Row>
-          {productData.map((product) => (
-            <Col xs={12} md={12} lg={4} key={product._id} className="mb-4">
-              <Card
-                style={{
-                  width: "100%",
-                  opacity: product.isActive ? 1 : 0.5,
-                  position: "relative",
-                }}
-                className="text-center">
-                <Card.Body>
-                  <Card.Title>{product.name}</Card.Title>
-                  <Card.Text>{product.description}</Card.Text>
-                  <p>{product._id}</p>
-                  {!product.isActive && (
-                    <div
-                      style={{
-                        position: "absolute",
-                        top: "50%",
-                        left: "50%",
-                        transform: "translate(-50%, -50%)",
-                        backgroundColor: "rgba(255, 255, 255, 0.8)",
-                        padding: "10px",
-                        borderRadius: "5px",
-                      }}>
-                      <h1 className="text-danger">Unavailable</h1>
-                    </div>
-                  )}
-                  <UpdateProduct product={product._id} fetchData={fetchData} />
-                  <DisableProduct
-                    product={product._id}
-                    isActive={product.isActive}
-                    fetchData={fetchData}
-                  />
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
-        </Row>
-      </Container>
-
-      <Modal show={showModal} onHide={handleClose} size="lg" centered>
-        <Modal.Header closeButton>
-          <Modal.Title className="text-center w-100">Add Product</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <AddProduct handleClose={handleClose} fetchData={fetchData} />
-        </Modal.Body>
-      </Modal>
+      {showUserOrders ? (
+        <ShowUserOrders />
+      ) : (
+        <Container>
+          <Row>
+            {productData.map((product) => (
+              <Col xs={12} md={12} lg={4} key={product._id} className="mb-4">
+                <Card
+                  style={{
+                    width: "100%",
+                    opacity: product.isActive ? 1 : 0.5,
+                    position: "relative",
+                  }}
+                  className="text-center">
+                  <Card.Body>
+                    <Card.Title>{product.name}</Card.Title>
+                    <Card.Text>{product.description}</Card.Text>
+                    <p>{product._id}</p>
+                    {!product.isActive && (
+                      <div
+                        style={{
+                          position: "absolute",
+                          top: "50%",
+                          left: "50%",
+                          transform: "translate(-50%, -50%)",
+                          backgroundColor: "rgba(255, 255, 255)",
+                          padding: "10px",
+                          borderRadius: "5px",
+                        }}>
+                        <h1 className="text-danger">Unavailable</h1>
+                      </div>
+                    )}
+                    <UpdateProduct
+                      product={product._id}
+                      fetchData={fetchData}
+                    />
+                    <DisableProduct
+                      product={product._id}
+                      isActive={product.isActive}
+                      fetchData={fetchData}
+                    />
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      )}
+      {showAddProduct && (
+        <Modal
+          show={showAddProduct}
+          onHide={handleCloseAddProduct}
+          size="lg"
+          centered>
+          <Modal.Header closeButton>
+            <Modal.Title className="text-center w-100">Add Product</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <AddProduct
+              handleClose={handleCloseAddProduct}
+              fetchData={fetchData}
+            />
+          </Modal.Body>
+        </Modal>
+      )}
     </>
   );
 }

@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 export default function DisableProduct({ product, isActive, fetchData }) {
   const disableProduct = (productId) => {
     fetch(
-      `http://ec2-13-59-17-101.us-east-2.compute.amazonaws.com/b4/products/${productId}/archive`,
+      `https://capstone2-dn1l.onrender.com/b4/products/${productId}/archive`,
       {
         method: "PATCH",
         headers: {
@@ -28,7 +28,7 @@ export default function DisableProduct({ product, isActive, fetchData }) {
 
   const enableProduct = (productId) => {
     fetch(
-      `http://ec2-13-59-17-101.us-east-2.compute.amazonaws.com/b4/products/${productId}/activate`,
+      `https://capstone2-dn1l.onrender.com/b4/products/${productId}/activate`,
       {
         method: "PATCH",
         headers: {

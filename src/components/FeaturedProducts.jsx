@@ -1,53 +1,49 @@
-import { useState, useEffect } from 'react';
-import { CardGroup } from 'react-bootstrap';
-import PreviewProducts from './PreviewProducts';
+import { useState, useEffect } from "react";
+import { CardGroup } from "react-bootstrap";
+import PreviewProducts from "./PreviewProducts";
 
-export default function FeaturedProducts(){
+export default function FeaturedProducts() {
+  const [previews, setPreviews] = useState([]);
 
-	const [previews, setPreviews] = useState([])
+  useEffect(() => {
+    fetch("https://capstone2-dn1l.onrender.com/b4/products/active")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
 
-	useEffect(() => {
-		fetch("http://ec2-13-59-17-101.us-east-2.compute.amazonaws.com/b4/products/active")
-		.then(res => res.json())
-		.then(data => {
-			console.log(data)
+        const numbers = [];
+        const featured = [];
 
-			const numbers = []
-			const featured = []
+        const generateRandomNums = () => {
+          let randomNum = Math.floor(Math.random() * data.length);
 
-			
-			const generateRandomNums = () => {
-				let randomNum = Math.floor(Math.random() * data.length)
+          if (numbers.indexOf(randomNum) === -1) {
+            numbers.push(randomNum);
+          } else {
+            generateRandomNums();
+          }
+        };
 
-				if(numbers.indexOf(randomNum) === -1){
-					numbers.push(randomNum)
-				} else {
-					generateRandomNums()
-				}
-			}
+        for (let i = 0; i < 2; i++) {
+          generateRandomNums();
 
-			
-			for(let i = 0; i < 2; i++){
-				generateRandomNums();
+          featured.push(
+            <PreviewProducts
+              data={data[numbers[i]]}
+              key={data[numbers[i]]._id}
+              breakPoint={6}
+            />
+          );
+        }
 
-				
-				featured.push(
+        setPreviews(featured);
+      });
+  }, []);
 
-					<PreviewProducts data={data[numbers[i]]} key={data[numbers[i]]._id} breakPoint={6}/>
-				)
-			}
-
-			setPreviews(featured)
-		})
-	}, [])
-
-	return(
-		<>
-			<h2 className='text-center pb-4'>Featured Products</h2>
-			<CardGroup>
-				{previews}
-			</CardGroup>
-		</>
-	)
-
+  return (
+    <>
+      <h2 className="text-center pb-4">Featured Products</h2>
+      <CardGroup>{previews}</CardGroup>
+    </>
+  );
 }

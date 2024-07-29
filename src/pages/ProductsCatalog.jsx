@@ -13,8 +13,8 @@ export default function ProductsCatalog() {
   const fetchData = () => {
     let fetchUrl =
       user.isAdmin === true
-        ? "http://ec2-13-59-17-101.us-east-2.compute.amazonaws.com/b4/products/all"
-        : "http://ec2-13-59-17-101.us-east-2.compute.amazonaws.com/b4/products/active";
+        ? "https://capstone2-dn1l.onrender.com/b4/products/all"
+        : "https://capstone2-dn1l.onrender.com/b4/products/active";
 
     fetch(fetchUrl, {
       headers: {
@@ -41,21 +41,23 @@ export default function ProductsCatalog() {
         <AdminView productData={products} fetchData={fetchData} />
       ) : (
         <>
-        <div className="productPage">
-          <Container>
-            <Row>
-              <Col>
-                <ProductSearch />
-                <div className="cardsDiv mb-5">
-                  <h2 className="text-center py-5 text-white">Our Products</h2>
-                  <CardGroup className="justify-content-center">
-                    <UserView productData={products} />
-                  </CardGroup>
-                </div>
-              </Col>
-            </Row> 
-          </Container>
-        </div>
+          <div className="productPage">
+            <Container>
+              <Row>
+                <Col>
+                  <ProductSearch />
+                  <div className="cardsDiv mb-5">
+                    <h2 className="text-center py-5 text-white">
+                      Our Products
+                    </h2>
+                    <CardGroup className="justify-content-center">
+                      <UserView productData={products} />
+                    </CardGroup>
+                  </div>
+                </Col>
+              </Row>
+            </Container>
+          </div>
         </>
       )}
     </>

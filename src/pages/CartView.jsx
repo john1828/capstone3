@@ -8,16 +8,13 @@ export default function CartView() {
   const [cartProducts, setCartProducts] = useState([]);
 
   const fetchCart = () => {
-    fetch(
-      "http://ec2-13-59-17-101.us-east-2.compute.amazonaws.com/b4/carts/get-cart",
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      }
-    )
+    fetch("https://capstone2-dn1l.onrender.com/b4/carts/get-cart", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -39,5 +36,5 @@ export default function CartView() {
         <Carts cartData={cartProducts} fetchCart={fetchCart} />;
       </Container>
     </div>
-  )
+  );
 }

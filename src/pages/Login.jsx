@@ -15,19 +15,16 @@ export default function Login() {
   function handleLoginSubmit(e) {
     e.preventDefault();
 
-    fetch(
-      "http://ec2-13-59-17-101.us-east-2.compute.amazonaws.com/b4/users/login",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: email,
-          password: password,
-        }),
-      }
-    )
+    fetch("https://capstone2-dn1l.onrender.com/b4/users/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data.access !== undefined) {
@@ -69,14 +66,11 @@ export default function Login() {
   }
 
   function retrieveUserDetails(token) {
-    fetch(
-      "http://ec2-13-59-17-101.us-east-2.compute.amazonaws.com/b4/users/details",
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    )
+    fetch("https://capstone2-dn1l.onrender.com/b4/users/details", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         setUser({

@@ -12,12 +12,13 @@ import Profile from "./pages/Profile";
 import AddProduct from "./pages/AddProduct";
 import { Link } from "react-router-dom";
 import ShopNowImg from "./assets/shopNow.png";
-
+import CheckoutProduct from "./pages/CheckoutProduct";
 
 function App() {
   const [user, setUser] = useState({
     id: null,
     isAdmin: null,
+    firstName: null,
   });
 
   function unsetUser() {
@@ -25,6 +26,7 @@ function App() {
     setUser({
       id: null,
       isAdmin: null,
+      firstName: null,
     });
   }
 
@@ -45,11 +47,13 @@ function App() {
             setUser({
               id: data._id,
               isAdmin: data.isAdmin,
+              firstName: data.firstName,
             });
           } else {
             setUser({
               id: null,
               isAdmin: null,
+              firstName: null,
             });
           }
         })
@@ -57,6 +61,7 @@ function App() {
           setUser({
             id: null,
             isAdmin: null,
+            firstName: null,
           });
         });
     }
@@ -66,25 +71,30 @@ function App() {
     <UserProvider value={{ user, setUser, unsetUser }}>
       <Router>
         {!user.isAdmin ? (
-            <h5 className="header">Free shipping with min order of ₱3,000! <Link to={'/products'}>
-                <img src={ShopNowImg} alt="shopNow Image" className="img-fluid headerImg"/>
-                </Link>
-            </h5>
-          ) : (
-            null
-          )}
+          <h5 className="header">
+            Free shipping with min order of ₱3,000!{" "}
+            <Link to={"/products"}>
+              <img
+                src={ShopNowImg}
+                alt="shopNow Image"
+                className="img-fluid headerImg"
+              />
+            </Link>
+          </h5>
+        ) : null}
         <AppNavbar />
         <div className="MainDiv">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/products" element={<ProductsCatalog />} />
-              <Route path="/addProduct" element={<AddProduct />} />
-              <Route path="/products/:productId" element={<ProductView />} />
-              <Route path="/cart" element={<CartView />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/profile" element={<Profile />} />
-            </Routes>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/products" element={<ProductsCatalog />} />
+            <Route path="/addProduct" element={<AddProduct />} />
+            <Route path="/products/:productId" element={<ProductView />} />
+            <Route path="/cart" element={<CartView />} />
+            <Route path="/checkout" element={<CheckoutProduct />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/profile" element={<Profile />} />
+          </Routes>
         </div>
       </Router>
     </UserProvider>
