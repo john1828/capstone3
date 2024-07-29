@@ -1,23 +1,17 @@
 import { useState, useEffect, useContext } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
 import IconImg from "../assets/icon.png";
 import Swal from "sweetalert2";
-import UserContext from "../../UserContext";
 
 export default function Profile() {
-  const { user } = useContext(UserContext);
   const [details, setDetails] = useState({});
 
   useEffect(() => {
-    fetch(
-      "http://ec2-13-59-17-101.us-east-2.compute.amazonaws.com/b4/users/details",
-      {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      }
-    )
+    fetch("https://capstone2-dn1l.onrender.com/b4/users/details", {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

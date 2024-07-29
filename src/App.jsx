@@ -33,14 +33,11 @@ function App() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      fetch(
-        "http://ec2-13-59-17-101.us-east-2.compute.amazonaws.com/b4/users/details",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      )
+      fetch("https://capstone2-dn1l.onrender.com/b4/users/details", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
         .then((res) => res.json())
         .then((data) => {
           if (data && data._id) {
