@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { CardGroup } from "react-bootstrap";
 import PreviewProducts from "./PreviewProducts";
+import "../index.css";
 
 export default function FeaturedProducts() {
   const [previews, setPreviews] = useState([]);
