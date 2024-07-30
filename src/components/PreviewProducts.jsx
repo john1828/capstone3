@@ -1,5 +1,6 @@
 import { Col, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import "./index.css";
 
 export default function PreviewProducts(props) {
   const { breakPoint, data } = props;
