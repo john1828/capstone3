@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Row, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "./index.css";
+import "../index.css";
 
 export default function ProductCard({ productProp }) {
   const { _id, name, description, price } = productProp;
