@@ -15,7 +15,7 @@ export default function Login() {
   function handleLoginSubmit(e) {
     e.preventDefault();
 
-    fetch("https://capstone2-dn1l.onrender.com/b4/users/login", {
+    fetch("https://capstone2-guu1.onrender.com/b4/users/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -66,7 +66,7 @@ export default function Login() {
   }
 
   function retrieveUserDetails(token) {
-    fetch("https://capstone2-dn1l.onrender.com/b4/users/details", {
+    fetch("https://capstone2-guu1.onrender.com/b4/users/details", {
       headers: {
         Authorization: `Bearer ${token}`,
       },

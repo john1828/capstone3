@@ -13,8 +13,8 @@ export default function ProductsCatalog() {
   const fetchData = () => {
     let fetchUrl =
       user.isAdmin === true
-        ? "https://capstone2-dn1l.onrender.com/b4/products/all"
-        : "https://capstone2-dn1l.onrender.com/b4/products/active";
+        ? "https://capstone2-guu1.onrender.com/b4/products/all"
+        : "https://capstone2-guu1.onrender.com/b4/products/active";
 
     fetch(fetchUrl, {
       headers: {

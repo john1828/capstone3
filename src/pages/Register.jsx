@@ -40,7 +40,7 @@ export default function Register() {
     // Prevents the page redirection via form submission
     e.preventDefault();
 
-    fetch("https://capstone2-dn1l.onrender.com/b4/users/register", {
+    fetch("https://capstone2-guu1.onrender.com/b4/users/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

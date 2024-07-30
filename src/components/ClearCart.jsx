@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 
 export default function ClearCart({ user, fetchCart }) {
   const deleteCart = (user) => {
-    fetch("https://capstone2-dn1l.onrender.com/b4/carts/clear-cart", {
+    fetch("https://capstone2-guu1.onrender.com/b4/carts/clear-cart", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

@@ -43,7 +43,7 @@ export default function CartTable({ cartProp, fetchCart }) {
 
     const updateCartQuantity = (productId) => {
       fetch(
-        "https://capstone2-dn1l.onrender.com/b4/carts/update-cart-quantity",
+        "https://capstone2-guu1.onrender.com/b4/carts/update-cart-quantity",
         {
           method: "PATCH",
           headers: {
@@ -143,7 +143,7 @@ export default function CartTable({ cartProp, fetchCart }) {
   }, [cartProp]);
 
   const handleCheckout = () => {
-    fetch("https://capstone2-dn1l.onrender.com/b4/orders/checkout", {
+    fetch("https://capstone2-guu1.onrender.com/b4/orders/checkout", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

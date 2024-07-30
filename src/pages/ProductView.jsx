@@ -39,7 +39,7 @@ export default function ProductView() {
   };
 
   function addCart(productId) {
-    fetch("https://capstone2-dn1l.onrender.com/b4/carts/add-to-cart", {
+    fetch("https://capstone2-guu1.onrender.com/b4/carts/add-to-cart", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -84,7 +84,7 @@ export default function ProductView() {
   useEffect(() => {
     console.log(productId);
 
-    fetch(`https://capstone2-dn1l.onrender.com/b4/products/${productId}`)
+    fetch(`https://capstone2-guu1.onrender.com/b4/products/${productId}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
