@@ -13,6 +13,7 @@ import AddProduct from "./pages/AddProduct";
 import { Link } from "react-router-dom";
 import ShopNowImg from "./assets/shopNow.png";
 import CheckoutProduct from "./pages/CheckoutProduct";
+import "./index.css";
 
 function App() {
   const [user, setUser] = useState({
