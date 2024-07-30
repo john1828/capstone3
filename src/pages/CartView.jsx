@@ -8,7 +8,7 @@ export default function CartView() {
   const [cartProducts, setCartProducts] = useState([]);
 
   const fetchCart = () => {
-    fetch("https://capstone2-guu1.onrender.com/b4/carts/get-cart", {
+    fetch("https://capstone2-eozr.onrender.com/b4/carts/get-cart", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

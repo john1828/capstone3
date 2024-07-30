@@ -8,7 +8,7 @@ export default function ProductSearch() {
   const handleSearch = async () => {
     try {
       const response = await fetch(
-        "https://capstone2-guu1.onrender.com/b4/products/search-by-name",
+        "https://capstone2-eozr.onrender.com/b4/products/search-by-name",
         {
           method: "POST",
           headers: {

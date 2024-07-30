@@ -17,7 +17,7 @@ export default function AddProduct({ handleClose, fetchData }) {
 
     let token = localStorage.getItem("token");
 
-    fetch("https://capstone2-guu1.onrender.com/b4/products", {
+    fetch("https://capstone2-eozr.onrender.com/b4/products", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

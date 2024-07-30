@@ -7,7 +7,7 @@ export default function Profile() {
   const [details, setDetails] = useState({});
 
   useEffect(() => {
-    fetch("https://capstone2-guu1.onrender.com/b4/users/details", {
+    fetch("https://capstone2-eozr.onrender.com/b4/users/details", {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },

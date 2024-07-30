@@ -6,7 +6,7 @@ export default function FeaturedProducts() {
   const [previews, setPreviews] = useState([]);
 
   useEffect(() => {
-    fetch("https://capstone2-guu1.onrender.com/b4/products/active")
+    fetch("https://capstone2-eozr.onrender.comh/b4/products/active")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

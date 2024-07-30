@@ -33,7 +33,7 @@ function App() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      fetch("https://capstone2-guu1.onrender.com/b4/users/details", {
+      fetch("https://capstone2-eozr.onrender.com/b4/users/details", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

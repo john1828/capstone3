@@ -11,7 +11,7 @@ export default function UpdateProduct({ product, fetchData }) {
   const [showModal, setShowModal] = useState(false);
 
   const openModal = (productId) => {
-    fetch(`https://capstone2-guu1.onrender.com/b4/products/${productId}`)
+    fetch(`https://capstone2-eozr.onrender.com/b4/products/${productId}`)
       .then((res) => res.json())
       .then((data) => {
         setProductId(data._id);
@@ -33,7 +33,7 @@ export default function UpdateProduct({ product, fetchData }) {
     e.preventDefault();
 
     fetch(
-      `https://capstone2-guu1.onrender.com/b4/products/${productId}/update`,
+      `https://capstone2-eozr.onrender.com/b4/products/${productId}/update`,
       {
         method: "PATCH",
         headers: {
