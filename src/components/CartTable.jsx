@@ -6,6 +6,7 @@ import shippingImg from "../assets/shipping.png";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import "../index.css";
 
 export default function CartTable({ cartProp, fetchCart }) {
   const { userId, cartItems, totalPrice } = cartProp;

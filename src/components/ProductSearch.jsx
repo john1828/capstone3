@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ProductCard from "./ProductCard";
+import "../index.css";
 
 export default function ProductSearch() {
   const [searchQuery, setSearchQuery] = useState("");

@@ -1,6 +1,7 @@
 import { Col, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import "../index.css";
 
 function BasicExample() {
   return (

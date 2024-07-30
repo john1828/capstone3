@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Button, Table } from "react-bootstrap";
 import Swal from "sweetalert2";
+import "../index.css";
 
 export default function CheckoutProduct() {
   const [orderDetails, setOrderDetails] = useState(null);

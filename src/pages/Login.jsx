@@ -4,6 +4,7 @@ import { useEffect, useState, useContext } from "react";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import UserContext from "../../UserContext";
+import "../index.css";
 
 export default function Login() {
   const navigate = useNavigate();

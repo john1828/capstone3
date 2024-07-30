@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
+import "../index.css";
 
 export default function UserView({ productData }) {
   const [products, setProducts] = useState([]);

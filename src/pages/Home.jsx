@@ -2,6 +2,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import FeaturedProducts from "../components/FeaturedProducts";
 import "../index.css";
 
+
 export default function Home() {
   return (
     <>

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import UserContext from "../../UserContext";
 import loginImg from "../assets/login.png";
 import Swal from "sweetalert2";
+import "../index.css";
 
 export default function Register() {
   const { user } = useContext(UserContext);

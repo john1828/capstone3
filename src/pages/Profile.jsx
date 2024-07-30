@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import IconImg from "../assets/icon.png";
 import Swal from "sweetalert2";
+import "../index.css";
 
 export default function Profile() {
   const [details, setDetails] = useState({});

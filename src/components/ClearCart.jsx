@@ -1,5 +1,6 @@
 import { Button } from "react-bootstrap";
 import Swal from "sweetalert2";
+import "../index.css";
 
 export default function ClearCart({ user, fetchCart }) {
   const deleteCart = (user) => {

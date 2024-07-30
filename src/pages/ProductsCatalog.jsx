@@ -4,6 +4,7 @@ import ProductSearch from "../components/ProductSearch";
 import UserView from "../components/UserView";
 import UserContext from "../../UserContext";
 import AdminView from "../components/AdminView";
+import "../index.css";
 
 export default function ProductsCatalog() {
   const { user } = useContext(UserContext);

@@ -1,5 +1,6 @@
 import { Button } from "react-bootstrap";
 import Swal from "sweetalert2";
+import "../index.css";
 
 export default function DisableProduct({ product, isActive, fetchData }) {
   const disableProduct = (productId) => {

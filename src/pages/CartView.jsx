@@ -2,6 +2,7 @@ import { Container } from "react-bootstrap";
 import { useState, useEffect, useContext } from "react";
 import Carts from "../components/Carts";
 import UserContext from "../../UserContext";
+import "../index.css";
 
 export default function CartView() {
   const { user } = useContext(UserContext);

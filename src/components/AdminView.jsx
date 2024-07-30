@@ -4,6 +4,7 @@ import AddProduct from "../pages/AddProduct";
 import UpdateProduct from "./UpdateProduct";
 import DisableProduct from "./DisableProduct";
 import ShowUserOrders from "./ShowUsersOrders";
+import "../index.css";
 
 export default function AdminView({ productData, fetchData }) {
   const [showAddProduct, setShowAddProduct] = useState(false);

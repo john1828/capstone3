@@ -3,6 +3,7 @@ import { Container, Card, Button, Row, Col } from "react-bootstrap";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import UserContext from "../../UserContext";
+import "../index.css";
 
 export default function ProductView() {
   const { productId } = useParams();

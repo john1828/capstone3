@@ -2,6 +2,7 @@ import { Nav, Navbar, Container } from "react-bootstrap";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import UserContext from "../../UserContext";
+import "../index.css";
 
 export default function AppNavbar() {
   const { user, unsetUser } = useContext(UserContext);

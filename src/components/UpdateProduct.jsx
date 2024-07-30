@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import Swal from "sweetalert2";
+import "../index.css";
 
 export default function UpdateProduct({ product, fetchData }) {
   const [productId, setProductId] = useState("");
